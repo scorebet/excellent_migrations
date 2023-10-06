@@ -37,7 +37,7 @@ defmodule ExcellentMigrations.AstParser do
   end
 
   defp detect_index_not_concurrently({operation, location, args})
-       when operation in @index_types do
+       when is_list(args) and operation in @index_types do
     options = List.last(args, [])
 
     if is_list(options) and Keyword.get(options, :concurrently) do
