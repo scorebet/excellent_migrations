@@ -128,14 +128,18 @@ defmodule ExcellentMigrations.AstParserTest do
     ast_multi = string_to_ast("create index(:recipes, [:cuisine])")
     ast_multi_with_opts = string_to_ast("create index(:recipes, [:cuisine], unique: true)")
     ast_conc_false = string_to_ast("create index(:recipes, [:cuisine], concurrently: false)")
+    ast_pipeline = string_to_ast("index(:recipes, [:cuisine]) |> create()")
     ast_conc_true = string_to_ast("create index(:recipes, [:cuisine], concurrently: true)")
+    ast_invalid = string_to_ast("fn {index, id} -> create(index, id) end")
 
     assert [index_not_concurrently: 1] == AstParser.parse(ast_single)
     assert [index_not_concurrently: 1] == AstParser.parse(ast_single_with_opts)
     assert [index_not_concurrently: 1] == AstParser.parse(ast_multi)
     assert [index_not_concurrently: 1] == AstParser.parse(ast_multi_with_opts)
     assert [index_not_concurrently: 1] == AstParser.parse(ast_conc_false)
+    assert [index_not_concurrently: 1] == AstParser.parse(ast_pipeline)
     assert [] == AstParser.parse(ast_conc_true)
+    assert [] == AstParser.parse(ast_invalid)
   end
 
   test "detects index added not concurrently using if not exists" do
