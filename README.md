@@ -17,7 +17,11 @@ in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:excellent_migrations, "~> 0.1", only: [:dev, :test], runtime: false}
+    {:excellent_migrations,
+    git: "git@github.com:scorebet/excellent_migrations.git",
+    tag: "v0.0.1",
+    only: [:dev, :test],
+    runtime: false}
   ]
 end
 ```
