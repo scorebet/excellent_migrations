@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [0.1.8] - 2024-02-09
+### Fixed
+- Using `Logger.warning` instead of deprecated `Logger.warn`
+
+## [0.1.7] - 2024-01-18
+### Fixed
+- Correct exit code
+- Choosing the right type when detected lack of disable_ddl_transaction or disable_migration_lock
+
 ## [0.1.6] - 2022-11-20
 ### Added
 - Detecting volatile default when adding a column or adding a default
@@ -37,7 +46,9 @@
 ### Added
 - First release!
 
-[Unreleased]: https://github.com/artur-sulej/excellent_migrations/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/artur-sulej/excellent_migrations/compare/v0.1.8...HEAD
+[0.1.8]: https://github.com/artur-sulej/excellent_migrations/compare/v0.1.7...v0.1.8
+[0.1.7]: https://github.com/artur-sulej/excellent_migrations/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/artur-sulej/excellent_migrations/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/artur-sulej/excellent_migrations/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/artur-sulej/excellent_migrations/compare/v0.1.3...v0.1.4
