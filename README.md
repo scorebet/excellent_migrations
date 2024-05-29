@@ -19,7 +19,7 @@ def deps do
   [
     {:excellent_migrations,
     git: "git@github.com:scorebet/excellent_migrations.git",
-    tag: "v0.0.2",
+    tag: "v0.1.8",
     only: [:dev, :test],
     runtime: false}
   ]
